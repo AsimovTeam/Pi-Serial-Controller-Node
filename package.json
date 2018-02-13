@@ -1,0 +1,27 @@
+{
+  "name": "pi-serial-controller-node",
+  "version": "0.0.0",
+  "description": "Le projet d'interface entre le raspberry pi et les actuateurs avec node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AsimovTeam/Pi-Serial-Controller-Node.git"
+  },
+  "keywords": [
+    "node",
+    "asimov",
+    "serial",
+    "modbus",
+    "rs232",
+    "simulator"
+  ],
+  "author": "Julien Ferluc, Samuel Joyal, Alexandre Dufresne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AsimovTeam/Pi-Serial-Controller-Node/issues"
+  },
+  "homepage": "https://github.com/AsimovTeam/Pi-Serial-Controller-Node#readme"
+}
