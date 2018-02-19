@@ -1,4 +1,8 @@
 const net = require('net')
+const errors = require('./modules/errors')
+const isJSON = require('is-json')
+const middleman = require('./modules/middleman')
+const os = require('os')
 
 const server = net.createServer((socket) => {
 
@@ -11,18 +15,15 @@ const server = net.createServer((socket) => {
 	})
 	
 	socket.on("data", (data) => {
-		let jsonData
-
-		try{
-			jsonData = JSON.parse(data.toString('utf-8'))
-		} catch (err) {
-			console.log(err)
-			socket.destroy(err)
+		if(isJSON(data)) {
+			middleman.interpret(data, (response) => {
+				socket.write(JSON.stringify(response))
+			})
+		} else {
+			socket.write(errors.notJson(data))
+			console.log("data was not json, terminating socket.")
+			docket.destroy()
 		}
-
-		console.log(jsonData)
-		console.log(JSON.stringify(jsonData))
-
 	})
 	
 })
